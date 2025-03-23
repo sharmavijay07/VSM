@@ -12,7 +12,11 @@ const subAdminRoutes = require('./routes/subAdminRoutes')
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: '*',  // Allow all origins
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization']  // Allowed headers
+}));
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
