@@ -40,6 +40,7 @@ const App = () => {
                     <Route path="/superadmin" element={role === 'superadmin' ? <SuperAdminPage /> : <Navigate to="/" />} />
                     <Route path="/subadmin" element={role === 'subadmin' ? <SubAdminPage /> : <Navigate to="/" />} />
                     <Route path="/customer" element={role === 'customer' ? <CustomerPage /> : <Navigate to="/" />} />
+                    <Route path="/*" element={role === 'customer' ? <CustomerPage /> : <Navigate to="/" />} />
                 </Routes>
             </div>
         </Router>

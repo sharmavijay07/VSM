@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { Eye, EyeOff, Mail, Lock, ArrowRight } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -138,12 +138,12 @@ const Login = ({ login }) => {
         <CardFooter className="flex justify-center">
           <p className="text-sm text-slate-500 dark:text-slate-400">
             Don't have an account?{" "}
-            <a 
-              href="/register" 
+            <NavLink 
+              to="/register" 
               className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium"
             >
               Sign up
-            </a>
+            </NavLink>
           </p>
         </CardFooter>
       </Card>

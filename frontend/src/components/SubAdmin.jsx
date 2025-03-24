@@ -57,6 +57,10 @@ const SubAdminPage = () => {
   }
 
   const handleTransaction = async (action) => {
+
+    const SubAdmin = JSON.parse(localStorage.getItem("StockUser"))
+    const SubAdminId = SubAdmin?._id
+
     if (!selectedCustomer || !selectedCompany || !quantity) {
       setMessage("Please fill all fields")
       setMessageType("error")
@@ -65,7 +69,7 @@ const SubAdminPage = () => {
 
     try {
       setIsLoading(true)
-      const endpoint = action === "buy" ? "/subadmin/buy-shares" : "/subadmin/sell-shares"
+      const endpoint = action === "buy" ? `/subadmin/buy-shares/${SubAdminId}` : `/subadmin/sell-shares/${SubAdminId}`
       await api.post(endpoint, {
         customerId: selectedCustomer,
         companyId: selectedCompany,
